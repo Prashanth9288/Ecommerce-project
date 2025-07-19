@@ -105,21 +105,21 @@ button:hover {
   color: #eee;
 }
 
-/* Divider text */
+
 .or {
   color: white;
   text-align: center;
   margin: 10px 0;
 }
 
-/* Forgot password or login link */
+
 h4 {
   color: #fff;
   text-align: right;
   margin-top: 10px;
 }
 
-/* Anchor links */
+
 a {
   color: #000;
   text-decoration: none;
@@ -135,7 +135,7 @@ a:hover {
   background-color: cornsilk;
 }
 
-/* Hover effect for image logo if used */
+
 img:hover {
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9);
 }

@@ -1,0 +1,248 @@
+
+   {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background: #f9fafb;
+    color: #1f2937;
+  }
+
+  header {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .counts, .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .counts span {
+    background: #fff;
+    color: #6366f1;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: white;
+    font-weight: 500;
+  }
+
+  button.logout-btn {
+    background: #6366f1;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button.logout-btn:hover {
+    background-color: #4f46e5;
+  }
+
+  #userProductList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .product-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #f3f4f6;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #111827;
+  }
+
+  .product-card p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin: 0.3rem 0;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .add-cart-btn {
+    background-color: #10b981;
+    color: white;
+  }
+
+  .add-cart-btn:hover {
+    background-color: #059669;
+  }
+
+  .wishlist-btn {
+    background-color: #6366f1;
+    color: white;
+  }
+
+  .wishlist-btn:hover {
+    background-color: #4f46e5;
+  }
+
+  .remove-btn {
+    background-color: #ef4444;
+    color: white;
+  }
+
+  .remove-btn:hover {
+    background-color: #dc2626;
+  }
+
+  .checkout-screen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -3px 0 12px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+  }
+
+  .dark {
+    background-color: #111827;
+    color: #f3f4f6;
+  }
+
+  .dark header {
+    background: #0f172a;
+  }
+
+  .dark .product-card {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  /* Footer styling */
+  .footer {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    padding: 50px 20px 20px;
+    font-size: 14px;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 10px;
+  }
+
+  .footer-col {
+    flex: 1 1 220px;
+    min-width: 180px;
+  }
+
+  .footer h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #facc15;
+  }
+
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer ul li {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    transition: color 0.3s ease;
+  }
+
+  .footer ul li a {
+    text-decoration: none;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
+  }
+
+  .footer ul li a:hover {
+    color: #ffffff;
+  }
+
+  .footer hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: #94a3b8;
+    padding: 10px;
+  }
+
+  .footer-bottom .heart {
+    color: #f43f5e;
+  }
+
+  @media (max-width: 600px) {
+    .footer-col {
+      flex: 1 1 100%;
+    }
+  }
