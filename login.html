@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - E-shoppy</title>
+  <link rel="stylesheet" href="./css/login.css">
+  
+</head>
+<body>
+
+   <video autoplay muted loop playsinline id="bg-video">
+    <source src="./images/loginpage.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>Welcome to Vendor-Hive</h2>
+    <input type="email" id="login-email" placeholder="Enter Email" />
+    <input type="password" id="login-password" placeholder="Enter Password" />
+    <button id="login-btn">Login</button>
+    <p>Don't have account then ? <a href="register.html"> Register</a></p>
+    <button id="home-btn" onclick="home()">Home</button>
+    <p id="login-message"></p>
+  </div>
+
+  <!-- Firebase Auth Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+    import {
+      getDatabase,
+      ref,
+      get
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+
+    const firebaseConfig = {
+         apiKey: "AIzaSyDyZt2GkKP-xZu1fnGfStPyWLvM5oWjm9Q",
+      authDomain: "ecommerce-396a5.firebaseapp.com",
+      databaseURL: "https://ecommerce-396a5-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "ecommerce-396a5",
+      storageBucket: "ecommerce-396a5.appspot.com",
+      messagingSenderId: "292220509400",
+      appId: "1:292220509400:web:50a603a5f82f3402784bad",
+      measurementId: "G-SBZ651M3GN"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    document.getElementById("login-btn").addEventListener("click", async () => {
+      const email = document.getElementById("login-email").value.trim();
+      const password = document.getElementById("login-password").value.trim();
+      const msg = document.getElementById("login-message");
+      msg.innerText = "";
+
+      if (!email || !password) {
+        msg.innerText = "Please enter both email and password.";
+        return;
+      }
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const uid = userCredential.user.uid;
+        const snapshot = await get(ref(db, 'users/' + uid));
+
+        if (!snapshot.exists()) {
+          msg.innerText = "User data not found.";
+          return;
+        }
+
+        const role = snapshot.val().role;
+        sessionStorage.setItem("uid", uid);
+        sessionStorage.setItem("role", role);
+
+        if (role === "seller") {
+          window.location.href = "seller_dashboard.html";
+        } else if (role === "buyer") {
+          window.location.href = "User_dashboard.html";
+        } else {
+          msg.innerText = "Unknown user role!";
+        }
+
+      } catch (err) {
+        console.error(err);
+        msg.innerText = "Incorrect email or password!";
+      }
+    });
+  </script>
+</body>
+</html>
+<script>
+  function register() {
+    window.location.href = "register.html";
+  }
+
+  function home() {
+    window.location.href = "index.html";
+  }
+</script>

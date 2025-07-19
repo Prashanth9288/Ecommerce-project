@@ -1,0 +1,137 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fullscreen background video */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* Glass login container */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #25045d;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #d9c2ff;
+  color: #25045d;
+}
+
+/* Message and forgot text */
+p {
+  color: #ffffff;
+  text-align: right;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* Links */
+a {
+  padding: 8px 14px;
+  background-color: #4a90e2;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0d0123;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background-color: #e6cbff;
+  color: #25045d;
+}
+
+/* Home button */
+#home-btn {
+  background-color: #4a90e2;
+  width: 40%;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#home-btn:hover {
+  background-color: #e6cbff;
+}
+
+/* Login error message */
+#login-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}

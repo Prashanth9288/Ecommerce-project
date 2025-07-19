@@ -1,0 +1,141 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fullscreen background video */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* Centered glassmorphic container */
+.signup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* Titles */
+.signup-container h2,
+.signup-container h3 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+select {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000;
+  font-weight: bold;
+}
+
+option {
+  background-color: #eee;
+  color: #000;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #25045d;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #d9c2ff;
+  color: #25045d;
+}
+
+/* Signup message */
+#signup-message {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #eee;
+}
+
+/* Divider text */
+.or {
+  color: white;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Forgot password or login link */
+h4 {
+  color: #fff;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Anchor links */
+a {
+  color: #000;
+  text-decoration: none;
+  background-color: #d4bbff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: background 0.3s;
+}
+
+a:hover {
+  background-color: cornsilk;
+}
+
+/* Hover effect for image logo if used */
+img:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.9);
+}

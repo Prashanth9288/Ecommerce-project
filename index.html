@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <!-- Unified Responsive Navbar -->
+<div id="container_nav">
+  <nav class="nav-bar">
+    <div class="nav-wrapper">
+
+      <!-- Logo -->
+      <div class="logo">
+        <video autoplay muted loop playsinline>
+          <source src="./images/logo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Title and Tagline -->
+      <div class="site-title">
+        <h2>VendorHive <br><span class="tagline"> Local Market place</span></h2>
+      </div>
+
+      <!-- Toggle icon (mobile) -->
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+      <!-- Navigation Links -->
+      <ul id="nav-links">
+        <li><a href="#cards-products">Categories</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="login.html">Store</a></li>
+        <li><a href="#">New Release</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li class="auth-links mobile-only"><a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+        <li class="auth-links mobile-only"><a href="register.html"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+      </ul>
+
+      <!-- Desktop Sign In/Sign Up -->
+      <div class="actions desktop-only">
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+        <a href="register.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+    <!-- Hero Section -->
+    <div class="main-section">
+        <video autoplay muted loop playsinline>
+            <source src="./images/v2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div class="main-text">
+            <h1>Empowering Small Businesses</h1>
+            <h2>to Sell Locally & Globally</h2>
+            <p>Connect with your community. Discover unique products from local artisans, makers, and small businesses in your area.</p>
+            <button onclick="window.location.href='login.html'">Start Selling</button>
+            <button onclick="window.location.href='login.html'">Start Sopping</button>
+        </div>
+    </div>
+
+    <!-- Product Cards -->
+    <div id="cards-container">
+        <center>
+            <h1>Shop by Category Top Product Picks</h1>
+            <p>Discover amazing products from local artisans and small businesses in your favorite categories</p>
+        </center>
+    </div>
+<section class="category-section">
+  <div class="category-cards">
+    
+  <a href="#" class="category-card" data-count="210">
+  <div class="icon indigo"><i class="fa-solid fa-microchip"></i></div>
+  <h3>Electronics</h3>
+  <p class="count">210 products</p>
+  </a>
+<a href="#" class="category-card" data-count="234">
+  <div class="icon blue"><i class="fa-solid fa-shirt"></i></div>
+  <h3>Clothing</h3>
+  <p class="count">234 products</p>
+</a>
+
+<a href="#" class="category-card" data-count="98">
+  <div class="icon orange"><i class="fa-solid fa-house"></i></div>
+  <h3>Home Appliances</h3>
+  <p class="count">98 products</p>
+</a>
+
+<a href="#" class="category-card" data-count="156">
+  <div class="icon purple"><i class="fa-solid fa-gem"></i></div>
+  <h3>Jewelry</h3>
+  <p class="count">156 products</p>
+</a>
+  </div>
+</section>
+
+  <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products..." />
+            <button id="searchBtn">Search</button>
+        </div>
+        <br>
+        <div id="filtering">
+            <select id="price_sort">
+                <option value="">Sort by Price</option>
+                <option value="ascending">Lowest</option>
+                <option value="decending">Highest</option>
+            </select>
+            <select id="ratings_sort">
+                <option value="">Sort by Ratings</option>
+                <option value="asc_rating">1-3</option>
+                <option value="desc_rating">Above 4</option>
+            </select>
+            <select id="Gender">
+                <option value="">Gender</option>
+                <option value="kids">Kids</option>
+                <option value="women">Women</option>
+                <option value="men">Men</option>
+            </select>
+            <select id="category_filter">
+                <option value="">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="dress">Dress</option>
+                <option value="home appliance">Home Appliance</option>
+                <option value="mobiles">Mobiles</option>
+                <option value="toys">Toys</option>
+            </select>
+            <select id="discount_filter">
+                <option value="">Min Discount %</option>
+                <option value="10">10% or more</option>
+                <option value="20">20% or more</option>
+                <option value="30">30% or more</option>
+                <option value="50">50% or more</option>
+            </select>
+        </div>
+
+            <div id="Cards">
+             <div class="cards-products"></div>
+            </div>
+
+    <!-- company videos -->
+    <br>
+    <div class="company">
+        <div class="content">
+            <center>
+                <h1>What Important in products launching looks</h1>
+            </center>
+        </div>
+        <div class="gallery">
+            <video autoplay muted loop playsinline>
+                <source src="./images/aboutus1.mp4" type="video/mp4" />
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="./images/aboutus2.mp4" type="video/mp4" />
+            </video>
+            <video autoplay muted loop playsinline>
+                <source src="./images/aboutus3.mp4" type="video/mp4" />
+            </video>
+        </div>
+
+    </div>
+
+ 
+    <section class="features-section">
+    <h2 class="section-title">Why Choose Vendor-Hive?</h2>
+    <div class="features-grid" id="features-grid">
+      <!-- Cards will be injected dynamically by JS -->
+    </div>
+    </section>
+
+           <!-- Summary Cards -->
+     <center><h1>Daily Trackings</h1></center>
+    <div class="summary-cards">
+        <div class="card" id="userCountCard">
+            <h3>Total Users</h3>
+            <p id="userCount">0</p>
+        </div>
+        <div class="card" id="productCountCard">
+            <h3>Total Products</h3>
+            <p id="productCount">0</p>
+        </div>
+        <div class="card" id="orderCountCard">
+            <h3>Total Orders</h3>
+            <p id="orderCount">0</p>
+        </div>
+    </div>
+    <br>
+<!-- CTA Section -->
+    <section class="cta-section">
+  <h2 class="cta-heading">Ready to Support Local?</h2>
+  <p class="cta-subtext">
+    Join thousands of community members who are making a difference by shopping local.
+  </p>
+  <div class="cta-buttons">
+    <a href="login.html" class="btn-primary">Start Shopping</a>
+    <a href="login.html" class="btn-secondary">List Your Business</a>
+  </div>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+
+                       <h4>For Customers</h4>
+      <ul>
+        <li><a href="#">How to Shop</a></li>
+        <li><a href="#">Customer Support</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Safety & Security</a></li>
+      </ul>
+  
+    </div>
+    <div class="footer-col">
+      <h4>For Businesses</h4>
+      <ul>
+        <li><a href="#">Sell on LocalHive</a></li>
+        <li><a href="#">Business Resources</a></li>
+        <li><a href="#">Pricing Plans</a></li>
+        <li><a href="#">Success Stories</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Community Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div class="footer-bottom">
+    © 2025 Vendor-Hive. All rights reserved. Built with <span class="heart">❤️</span> for local communities.
+  </div>
+
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  });
+</script>
+<script src="./index.js"></script>
+
+<script>
+let products = []; // will hold all product data
+
+// Fetch fake data (simulate)
+async function fetchProducts() {
+    // Simulated data (you can also replace this with fetch from fakestoreapi.com)
+    products = await fetch("https://fakestoreapi.com/products")
+        .then(res => res.json());
+
+    // Add extra fields to simulate full data
+    products = products.map((prod, index) => ({
+        id: prod.id,
+        title: prod.title,
+        price: prod.price,
+        rating: prod.rating?.rate || (Math.random() * 4 + 1).toFixed(1),
+        gender: ['men', 'women', 'kids'][Math.floor(Math.random() * 3)],
+        category: prod.category || ['electronics', 'dress', 'mobiles'][index % 3],
+        discount: [10, 20, 30, 40, 50][Math.floor(Math.random() * 5)],
+        image: prod.image
+    }));
+
+    renderProducts(products);
+}
+
+// Render cards
+function renderProducts(data) {
+    const container = document.querySelector('.cards-products');
+    container.innerHTML = '';
+
+    if (data.length === 0) {
+        container.innerHTML = '<p>No products found</p>';
+        return;
+    }
+
+    data.forEach(prod => {
+        container.innerHTML += `
+        <div class="card">
+            <img src="${prod.image}" alt="${prod.title}" width="100" />
+            <h3>${prod.title}</h3>
+            <p>Price: ₹${prod.price}</p>
+            <p>Rating: ${prod.rating}</p>
+            <p>Discount: ${prod.discount}%</p>
+            <p>Gender: ${prod.gender}</p>
+            <p>Category: ${prod.category}</p>
+        </div>`;
+    });
+}
+
+// Event listeners for all filters
+document.getElementById("searchInput").addEventListener("input", filterProducts);
+document.getElementById("price_sort").addEventListener("change", filterProducts);
+document.getElementById("ratings_sort").addEventListener("change", filterProducts);
+document.getElementById("Gender").addEventListener("change", filterProducts);
+document.getElementById("category_filter").addEventListener("change", filterProducts);
+document.getElementById("discount_filter").addEventListener("change", filterProducts);
+
+function filterProducts() {
+    let filtered = [...products];
+
+    const searchText = document.getElementById("searchInput").value.toLowerCase();
+    const priceSort = document.getElementById("price_sort").value;
+    const ratingSort = document.getElementById("ratings_sort").value;
+    const gender = document.getElementById("Gender").value;
+    const category = document.getElementById("category_filter").value;
+    const discount = document.getElementById("discount_filter").value;
+
+    // Filter by search
+    if (searchText) {
+        filtered = filtered.filter(p => p.title.toLowerCase().includes(searchText));
+    }
+
+    // Filter by gender
+    if (gender) {
+        filtered = filtered.filter(p => p.gender === gender);
+    }
+
+    // Filter by category
+    if (category) {
+        filtered = filtered.filter(p => p.category === category);
+    }
+
+    // Filter by discount
+    if (discount) {
+        filtered = filtered.filter(p => p.discount >= parseInt(discount));
+    }
+
+    // Sort by price
+    if (priceSort === "ascending") {
+        filtered.sort((a, b) => a.price - b.price);
+    } else if (priceSort === "decending") {
+        filtered.sort((a, b) => b.price - a.price);
+    }
+
+    // Sort by rating
+    if (ratingSort === "asc_rating") {
+        filtered = filtered.filter(p => p.rating <= 3);
+    } else if (ratingSort === "desc_rating") {
+        filtered = filtered.filter(p => p.rating >= 4);
+    }
+
+    renderProducts(filtered);
+}
+
+// On page load
+fetchProducts();
+</script>
+
+</body>
+
+
+</html>
