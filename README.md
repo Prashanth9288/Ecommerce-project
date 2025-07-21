@@ -4,7 +4,7 @@ A simplified yet powerful e-commerce solution designed to help local businesses 
 
 ## Demo Link
 
-link - https://bucolic-figolla-0f9521.netlify.app
+link -https://687e22c89ad0bd2ce27990eb--jade-longma-6cc775.netlify.app
 
 ## 🌐 Project Overview
 
