@@ -100,31 +100,60 @@
   }
 
   // 📦 LOAD ORDERS
-  function loadOrders() {
-    db.ref("orders").on("value", snap => {
-      const orders = snap.val();
-      orderList.innerHTML = "";
-      for (let id in orders) {
-        const o = orders[id];
-        const card = document.createElement("div");
-        card.className = "order-card";
-        card.innerHTML = `
-          <p><strong>Customer:</strong> ${o.customer}</p>
-          <p><strong>Product:</strong> ${o.product}</p>
-          <p><strong>Quantity:</strong> ${o.quantity || 1}</p>
-          <p><strong>Total:</strong> ₹${o.totalAmount}</p>
-          <p>
-            <strong>Status:</strong>
-            <select class="status-select" onchange="updateStatus('${id}', this.value)">
-              <option value="Pending" ${o.status === "Pending" ? "selected" : ""}>Pending</option>
-              <option value="Shipped" ${o.status === "Shipped" ? "selected" : ""}>Shipped</option>
-              <option value="Delivered" ${o.status === "Delivered" ? "selected" : ""}>Delivered</option>
-            </select>
-          </p>
-        `;
-        orderList.appendChild(card);
-      }
-    });
+ function loadOrdersRealtime() {
+  const currentSellerId = "admin"; // 🔁 Replace with actual seller UID from auth if available
+
+  db.ref("orders").on("child_added", (snapshot) => {
+    const o = snapshot.val();
+
+    // ✅ Only show if order belongs to this seller
+    if (o.sellerId !== currentSellerId) return;
+
+    const card = document.createElement("div");
+    card.className = "order-card";
+    card.innerHTML = `
+      <p><strong>Customer ID:</strong> ${o.userId}</p>
+      <p><strong>Product:</strong> ${o.title}</p>
+      <p><strong>Quantity:</strong> ${o.quantity || 1}</p>
+      <p><strong>Total:</strong> ₹${o.totalAmount}</p>
+      <p>
+        <strong>Status:</strong>
+        <select class="status-select" onchange="updateStatus('${snapshot.key}', this.value)">
+          <option value="Pending" ${o.status === "Pending" ? "selected" : ""}>Pending</option>
+          <option value="Shipped" ${o.status === "Shipped" ? "selected" : ""}>Shipped</option>
+          <option value="Delivered" ${o.status === "Delivered" ? "selected" : ""}>Delivered</option>
+        </select>
+      </p>
+    `;
+    orderList.prepend(card); // ⬅️ adds to top
+  });
+}
+
+
+  for (let id in orders) {
+    const o = orders[id];
+    if (o.sellerId !== currentSellerId) continue; // filter by seller
+
+    const card = document.createElement("div");
+    card.className = "order-card";
+    card.innerHTML = `
+      <p><strong>Customer:</strong> ${o.userId}</p>
+      <p><strong>Product:</strong> ${o.title}</p>
+      <p><strong>Quantity:</strong> ${o.quantity || 1}</p>
+      <p><strong>Total:</strong> ₹${o.totalAmount}</p>
+      <p>
+        <strong>Status:</strong>
+        <select class="status-select" onchange="updateStatus('${id}', this.value)">
+          <option value="Pending" ${o.status === "Pending" ? "selected" : ""}>Pending</option>
+          <option value="Shipped" ${o.status === "Shipped" ? "selected" : ""}>Shipped</option>
+          <option value="Delivered" ${o.status === "Delivered" ? "selected" : ""}>Delivered</option>
+        </select>
+      </p>
+    `;
+    orderList.appendChild(card);
+  }
+});
+
   }
 
   // 📝 UPDATE ORDER STATUS
@@ -170,6 +199,7 @@
       document.getElementById("totalRevenue").textContent = `₹${total.toFixed(2)}`;
       document.getElementById("avgOrder").textContent = count ? `₹${(total / count).toFixed(2)}` : "₹0";
     });
+  
   }
 
   // 🚨 LOAD STOCK ALERTS
@@ -214,7 +244,7 @@
         item.className = "order-entry";
         item.innerHTML = `
           <div class="info">
-            <strong>${order.product}</strong>
+            <strong>${order.title}</strong>
             <small>Qty: ${order.quantity || 1}</small>
           </div>
           <span class="${order.status.toLowerCase()}">${order.status}</span>

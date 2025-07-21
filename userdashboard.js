@@ -86,19 +86,26 @@
     }
     function placeOrder() {
       const uid = auth.currentUser?.uid;
+
+  const displayName = auth.currentUser?.displayName || "Anonymous";
+
       const timestamp = Date.now();
 
       for (let id in cart) {
         const p = products[id];
         const sellerId = p.sellerId || 'admin';
-        db.ref(`orders/${sellerId}`).push({
-          userId: uid,
-          productId: id,
-          quantity: cart[id],
-          title: p.title,
-          price: p.price,
-          timestamp
-        });
+        db.ref("orders").push({
+  userId: uid,
+  sellerId: sellerId, // required for filtering in seller dashboard
+  productId: id,
+  title: p.title,
+  price: p.price,
+  quantity: cart[id],
+  totalAmount: p.price * cart[id],
+  status: "Pending",
+  timestamp
+});
+
       }
 
       cart = {};
